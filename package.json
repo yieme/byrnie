@@ -1,6 +1,6 @@
 {
   "name": "byrnie",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Weaving Mithril into beautiful component armour",
   "main": "index.js",
   "scripts": {
