@@ -75,6 +75,8 @@ todo.view = function() {
 };
 ```
 
+## Add View-Model
+
 ```js
 <todo>
   <template> // optional, but improves clarity. Maps to Mithril view
@@ -113,33 +115,33 @@ todo.vm = (function() {
 }())
 ```
 
-Template to specific namespace
+## Template to specific namespace
 
 ```js
 <script data-ns="myhome" src="byrnie.min.js"></script>
 ```
 
-Mount to specific object
+### Mount to specific object
 
 ```js
 Var B = {}
 Byrnie.scope('todo', B)
 
-One time render
+### One time render
 
 ```js
 Byrnie.render(document, todo) // same as m.render(document, todo.view())
 Byrnie.render('element-id', todo) // same as m.render(document.getElementById('element-id', todo.view()))
 ```
 
-Auto refresh
+### Auto refresh
 
 ```js
 Byrnie.module(document, {controller: todo.controller, view: todo.view}) // same as m.module(document, {controller: todo.controller, view: todo.view})Â
 Byrnie.module(document, todo) // todo must have .controller and .viewÂ
 ```
 
-Shadow DOM (-: not to be confused with Virtual DOM :-)
+## Shadow DOM (-: not to be confused with Virtual DOM :-)
 
 ```js
 <todo>
@@ -165,7 +167,7 @@ todo.view = function() {
 };
 ```
 
-etc
+Etc
 
 ## Potential Implementations:
 
