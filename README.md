@@ -1,4 +1,4 @@
-# Byrnie <img src="byrnie.png" align="right" width="10%">
+# Byrnie <img src="byrnie.png" align="right" width="25%">
 
 Weaving Mithril into beautiful components
 
