@@ -174,6 +174,10 @@ Etc
 1. Rework Riot compiler to generate Mithril
 2. Sweet.js -> MSX -> Mithril
 
+## Feedback
+
+Add an issue to let me know if you support this idea or have other thoughts :-)
+
 ## Byrnie name
 
 Pronounced: [bur-nee], a byrnie is a scottish variant for [coat of mail armour or hauberk](http://dictionary.reference.com/browse/byrnie)
