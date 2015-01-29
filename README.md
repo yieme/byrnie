@@ -16,7 +16,7 @@ Binding | **choice** | **choice** | **choice** | one-way | two-way | two-way | t
 [TodoMVC](https://matt-esch.github.io/mercury-perf/) | **127ms**<sup>1</sup> | [**127ms**](https://github.com/muut/riotjs/issues/186) | [594ms](https://github.com/muut/riotjs/issues/186) | [820ms](https://github.com/muut/riotjs/issues/186) | n/a<sup>6</sup> | [259ms](https://github.com/muut/riotjs/issues/186) | [1,742ms](https://github.com/muut/riotjs/issues/186)
 Template Safety | [**Yes**](https://lhorie.github.io/mithril/index.html)<sup>1</sup> | [**Yes**](https://lhorie.github.io/mithril/index.html) | n/a<sup>7</sup> | n/a | n/a | n/a | [No](https://lhorie.github.io/mithril/index.html)
 
-##### As a quick overview corrections and clarifications are welcome :-)
+##### A quick overview. Corrections and clarifications are welcome :-)
 
 Notes:
 
