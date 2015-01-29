@@ -1,0 +1,36 @@
+{
+  "name": "byrnie",
+  "version": "1.0.0",
+  "description": "Weaving Mithril into beautiful component armour",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://yieme@github.com/yieme/byrnie.git"
+  },
+  "keywords": [
+    "mithril",
+    "riot",
+    "component",
+    "polymer",
+    "vue",
+    "knockout",
+    "angular",
+    "angularjs",
+    "backbone",
+    "om",
+    "elm",
+    "quiescent",
+    "react",
+    "reactive",
+    "mercury"
+  ],
+  "author": "yieme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yieme/byrnie/issues"
+  },
+  "homepage": "https://github.com/yieme/byrnie"
+}
