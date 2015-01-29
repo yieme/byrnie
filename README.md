@@ -30,16 +30,10 @@ Notes:
 
 ## Syntax
 
-Include script without namespace
+Include Byrnie
 
 ```js
 <script src="byrnie.min.js"></script>
-```
-
-Include script with a specific namespace, recommended
-
-```js
-<script data-ns="byrnie" src="byrnie.min.js"></script>
 ```
 
 Include byrnie template
@@ -48,7 +42,7 @@ Include byrnie template
 <script src="byrnie.min.js" type="text/x-byrnie"></script>
 ```
 
-Basic template without namespace
+Basic template
 
 ```js
 <todo>
@@ -79,12 +73,6 @@ todo.view = function() {
       m("button", "Add")
     ]);
 };
-```
-
-Template with namespace
-
-```js
-<script data-ns="byrnie" src="byrnie.min.js"></script>
 ```
 
 ```js
@@ -125,19 +113,17 @@ todo.vm = (function() {
 }())
 ```
 
+Template to specific namespace
 
 ```js
-<byrnie-element name="my-element">
-  <template> // optional, use for polymer compatibility. HTML to Mithril view
-    <span>I'm <b>my-element</b>. This is my Shadow DOM.</span>
-    <core-ajax url="http://example.com/json" auto response="{{resp}}"></core-ajax>
-    <textarea value="{{resp}}"></textarea>
-  </template> // optional, use for polymer compatibility
-  <script> // optional, use for polymer compatibility
-    Byrnie(...) // mythril compatibile JS, CoffeeScript, etc
-  </script> // optional, use for polymer compatibility
-</byrnie-element>
+<script data-ns="myhome" src="byrnie.min.js"></script>
 ```
+
+Mount to specific object
+
+```js
+Var B = {}
+Byrnie.scope('todo', B)
 
 One time render
 
@@ -152,6 +138,34 @@ Auto refresh
 Byrnie.module(document, {controller: todo.controller, view: todo.view}) // same as m.module(document, {controller: todo.controller, view: todo.view})Â
 Byrnie.module(document, todo) // todo must have .controller and .viewÂ
 ```
+
+Shadow DOM (-: not to be confused with Virtual DOM :-)
+
+```js
+<todo>
+  <style>
+    .button { border: 1px }
+  </style>
+
+  <button class="button" onclick={app.vm.add}>Add</button>
+</todo>
+```
+
+Gets emulated as Shadow DOM and gets transpiled to MSX until a living standard:
+
+```js
+todo.view = function() {
+    return <div>
+      <style scoped> <!-- W3 compilance -->
+        .todo-button { border: 1px }
+      </style>
+        <input onchange={m.withAttr("value", app.vm.description)} value={app.vm.description()}/>
+        <button class="todo-button" onclick={app.vm.add}>Add</button>
+    </div>
+};
+```
+
+etc
 
 ## Potential Implementations:
 
