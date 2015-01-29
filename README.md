@@ -97,7 +97,7 @@ todo.view = function() {
         }
     };
   }
-  </script> // optional, use for polymer compatibility
+  </script> // optional, improves clarity
 </todo>
 ```
 
