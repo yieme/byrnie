@@ -114,6 +114,18 @@ Template with namespace
 </todo>
 ```
 
+Script gets wrapped in standard View-Model
+
+```js
+todo.vm = (function() {
+    var vm = {}
+    vm.init = function() {
+      // script code here
+    }
+    return vm
+}())
+```
+
 
 ```js
 <byrnie-element name="my-element">
