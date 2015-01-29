@@ -26,7 +26,112 @@ Notes:
 4. Angular 1.3.x supports IE9+
 5. Angular 2.x will [support modern browsers that auto update](http://www.infoq.com/news/2014/03/angular-2-0) (IE11+)
 6. Un-available. [TodoMVC Pref](https://github.com/matt-esch/mercury-perf/) needed
-7. Dependant upon at least the
+7. Dependent upon at least the
+
+## Syntax
+
+Include script without namespace
+
+```js
+<script src="byrnie.min.js"></script>
+```
+
+Include script with a specific namespace, recommended
+
+```js
+<script data-ns="byrnie" src="byrnie.min.js"></script>
+```
+
+Include byrnie template
+
+```js
+<script src="byrnie.min.js" type="text/x-byrnie"></script>
+```
+
+Basic template without namespace
+
+```js
+<todo>
+  <div>
+    <input onchange={m.withAttr("value", app.vm.description)} value={app.vm.description()}/>
+    <button onclick={app.vm.add}>Add</button>
+  </div>
+</todo>
+```
+
+Gets transpiled to MSX:
+
+```js
+todo.view = function() {
+    return <div>
+        <input onchange={m.withAttr("value", app.vm.description)} value={app.vm.description()}/>
+        <button onclick={app.vm.add}>Add</button>
+    </div>
+};
+```
+
+Then compiled to Mitril:
+
+```js
+todo.view = function() {
+    return m("div", [
+      m("input"),
+      m("button", "Add")
+    ]);
+};
+```
+
+Template with namespace
+
+```js
+<script data-ns="byrnie" src="byrnie.min.js"></script>
+```
+
+```js
+<todo>
+  <template> // optional, but improves clarity. Maps to Mithril view
+    <span>I'm <b>my-element</b>. This is my Shadow DOM.</span>
+    <core-ajax url="http://example.com/json" auto response="{{resp}}"></core-ajax>
+    <textarea value="{{resp}}"></textarea>
+  </template> // optional, but improves clarity
+
+  <script> // optional, but improves clarity. Maps to Mithril View-Model
+    vm.list = new todo.TodoList();
+
+    //a slot to store the name of a new todo before it is created
+    vm.description = m.prop("");
+
+    //adds a todo to the list, and clears the description field for user convenience
+    vm.add = function(description) {
+        if (description()) {
+            vm.list.push(new todo.Todo({description: description()}));
+            vm.description("");
+        }
+    };
+  }
+  </script> // optional, use for polymer compatibility
+
+</todo>
+```
+
+
+```js
+<byrnie-element name="my-element">
+  <template> // optional, use for polymer compatibility. HTML to Mithril view
+    <span>I'm <b>my-element</b>. This is my Shadow DOM.</span>
+    <core-ajax url="http://example.com/json" auto response="{{resp}}"></core-ajax>
+    <textarea value="{{resp}}"></textarea>
+  </template> // optional, use for polymer compatibility
+  <script> // optional, use for polymer compatibility
+    Byrnie(...) // mythril compatibile JS, CoffeeScript, etc
+  </script> // optional, use for polymer compatibility
+</byrnie-element>
+```
+
+## Potential Implementations:
+
+1. Rework Riot compiler to generate Mithril
+2. Sweet.js -> MSX -> Mithril
 
 ## Byrnie name
 
