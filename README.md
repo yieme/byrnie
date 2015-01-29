@@ -110,7 +110,6 @@ Template with namespace
     };
   }
   </script> // optional, use for polymer compatibility
-
 </todo>
 ```
 
@@ -138,6 +137,20 @@ todo.vm = (function() {
     Byrnie(...) // mythril compatibile JS, CoffeeScript, etc
   </script> // optional, use for polymer compatibility
 </byrnie-element>
+```
+
+One time render
+
+```js
+Byrnie.render(document, todo) // same as m.render(document, todo.view())
+Byrnie.render('element-id', todo) // same as m.render(document.getElementById('element-id', todo.view()))
+```
+
+Auto refresh
+
+```js
+Byrnie.module(document, {controller: todo.controller, view: todo.view}) // same as m.module(document, {controller: todo.controller, view: todo.view})Â
+Byrnie.module(document, todo) // todo must have .controller and .viewÂ
 ```
 
 ## Potential Implementations:
